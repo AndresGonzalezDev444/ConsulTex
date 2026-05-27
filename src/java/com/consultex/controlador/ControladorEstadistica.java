@@ -42,7 +42,8 @@ public class ControladorEstadistica extends HttpServlet {
             request.setAttribute("kpiPacientes", estDao.getTotalPacientesActivos());
             request.setAttribute("kpiConsultasHoy", estDao.getConsultasHoy());
             request.setAttribute("kpiMedicos", estDao.getMedicosActivos());
-            request.setAttribute("kpiCalificacion", estDao.getPromedioCalificacionApp());
+            request.setAttribute("kpiCalificacionApp", estDao.getPromedioCalificacionApp());
+            request.setAttribute("kpiCalificacionMedico", estDao.getPromedioCalificacionMedico());
             request.setAttribute("kpiCitasCanceladas", estDao.getCitasCanceladas());
 
             // 3. ENVIAR DATOS A LA VISTA (JSP)
@@ -67,7 +68,8 @@ public class ControladorEstadistica extends HttpServlet {
             kpis.put("pacientes", estDao.getTotalPacientesActivos());
             kpis.put("consultasHoy", estDao.getConsultasHoy());
             kpis.put("medicos", estDao.getMedicosActivos());
-            kpis.put("calificacion", estDao.getPromedioCalificacionApp());
+            kpis.put("calificacionApp", estDao.getPromedioCalificacionApp());
+            kpis.put("calificacionMedico", estDao.getPromedioCalificacionMedico());
             kpis.put("citasCanceladas", estDao.getCitasCanceladas());
             // También los datos de los gráficos para el refresh
             kpis.put("usuariosRol", estDao.getUsuariosPorRol());

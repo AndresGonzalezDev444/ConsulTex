@@ -18,11 +18,11 @@
             
             <div class="form-group" style="margin-bottom: 25px;">
                 <label style="font-weight: 600; color: var(--dark); margin-bottom: 15px; display: block;">¿Qué tan intuitiva y útil te parece la aplicación?</label>
-                <div style="display: flex; flex-direction: column; gap: 12px; background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;"><input type="radio" name="calificacion" value="Mala" required> <span class="status-badge" style="background:#fdedec; color:#e74c3c; border: 1px solid #e74c3c;">Mala</span></label>
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;"><input type="radio" name="calificacion" value="Intermedia" required> <span class="status-badge" style="background:#fef5e7; color:#f39c12; border: 1px solid #f39c12;">Intermedia</span></label>
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;"><input type="radio" name="calificacion" value="Buena" required> <span class="status-badge" style="background:#ebf5fb; color:#3498db; border: 1px solid #3498db;">Buena</span></label>
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;"><input type="radio" name="calificacion" value="Excelente" required> <span class="status-badge" style="background:#e8f8f5; color:#1abc9c; border: 1px solid #1abc9c;">Excelente</span></label>
+                <div style="display: flex; flex-direction: column; gap: 12px; background: #f8f9fa; padding: 15px; border-radius: 8px; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal; width: 140px; justify-content: flex-start;"><input type="radio" name="calificacion" value="Mala" required> <span class="status-badge" style="background:#fdedec; color:#e74c3c; border: 1px solid #e74c3c; width: 90px; text-align: center;">Mala</span></label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal; width: 140px; justify-content: flex-start;"><input type="radio" name="calificacion" value="Intermedia" required> <span class="status-badge" style="background:#fef5e7; color:#f39c12; border: 1px solid #f39c12; width: 90px; text-align: center;">Intermedia</span></label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal; width: 140px; justify-content: flex-start;"><input type="radio" name="calificacion" value="Buena" required> <span class="status-badge" style="background:#ebf5fb; color:#3498db; border: 1px solid #3498db; width: 90px; text-align: center;">Buena</span></label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal; width: 140px; justify-content: flex-start;"><input type="radio" name="calificacion" value="Excelente" required> <span class="status-badge" style="background:#e8f8f5; color:#1abc9c; border: 1px solid #1abc9c; width: 90px; text-align: center;">Excelente</span></label>
                 </div>
             </div>
             

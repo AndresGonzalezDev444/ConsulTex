@@ -243,9 +243,16 @@ public class EstadisticaDAO {
         return 0;
     }
 
-    // KPI 4: Promedio de Calificación del Sistema (Evaluaciones)
+    // KPI 4: Promedio de Calificación del Sistema (App)
     public double getPromedioCalificacionApp() {
-        String sql = "SELECT AVG(CAST(calificacion_app AS DECIMAL(3,1))) FROM Evaluacion WHERE estado_activo = true AND calificacion_app REGEXP '^[0-9]'";
+        String sql = "SELECT AVG(" +
+                     "CASE " +
+                     "WHEN calificacion_app = 'Excelente' THEN 10.0 " +
+                     "WHEN calificacion_app = 'Buena' THEN 8.0 " +
+                     "WHEN calificacion_app = 'Intermedia' THEN 5.0 " +
+                     "WHEN calificacion_app = 'Mala' THEN 1.0 " +
+                     "ELSE NULL END) " +
+                     "FROM Evaluacion WHERE estado_activo = true AND calificacion_app IS NOT NULL";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -254,7 +261,29 @@ public class EstadisticaDAO {
                 double prom = rs.getDouble(1);
                 return Math.round(prom * 10.0) / 10.0;
             }
-        } catch (Exception e) { System.err.println("KPI PromedioCalif: " + e.getMessage()); }
+        } catch (Exception e) { System.err.println("KPI PromedioCalifApp: " + e.getMessage()); }
+        return 0.0;
+    }
+
+    // KPI NUEVO: Promedio de Calificación Médicos
+    public double getPromedioCalificacionMedico() {
+        String sql = "SELECT AVG(" +
+                     "CASE " +
+                     "WHEN calificacion_medico = 'Excelente' THEN 10.0 " +
+                     "WHEN calificacion_medico = 'Buena' THEN 8.0 " +
+                     "WHEN calificacion_medico = 'Intermedia' THEN 5.0 " +
+                     "WHEN calificacion_medico = 'Mala' THEN 1.0 " +
+                     "ELSE NULL END) " +
+                     "FROM Evaluacion WHERE estado_activo = true AND calificacion_medico IS NOT NULL";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                double prom = rs.getDouble(1);
+                return Math.round(prom * 10.0) / 10.0;
+            }
+        } catch (Exception e) { System.err.println("KPI PromedioCalifMed: " + e.getMessage()); }
         return 0.0;
     }
 

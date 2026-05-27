@@ -19,7 +19,8 @@
     int kpiPacientes = request.getAttribute("kpiPacientes") != null ? (int)request.getAttribute("kpiPacientes") : 0;
     int kpiConsultasHoy = request.getAttribute("kpiConsultasHoy") != null ? (int)request.getAttribute("kpiConsultasHoy") : 0;
     int kpiMedicos = request.getAttribute("kpiMedicos") != null ? (int)request.getAttribute("kpiMedicos") : 0;
-    double kpiCalificacion = request.getAttribute("kpiCalificacion") != null ? (double)request.getAttribute("kpiCalificacion") : 0.0;
+    double kpiCalificacionApp = request.getAttribute("kpiCalificacionApp") != null ? (double)request.getAttribute("kpiCalificacionApp") : 0.0;
+    double kpiCalificacionMedico = request.getAttribute("kpiCalificacionMedico") != null ? (double)request.getAttribute("kpiCalificacionMedico") : 0.0;
     int kpiCitasCanceladas = request.getAttribute("kpiCitasCanceladas") != null ? (int)request.getAttribute("kpiCitasCanceladas") : 0;
 
     Gson gson = new Gson();
@@ -74,6 +75,8 @@
         .kpi-card.c3 .kpi-icon { color: #9b59b6; }
         .kpi-card.c4 .kpi-icon { color: #f39c12; }
         .kpi-card.c5 .kpi-icon { color: #e74c3c; }
+        .kpi-card.c6 { border-top-color: #1abc9c; }
+        .kpi-card.c6 .kpi-icon { color: #1abc9c; }
         .kpi-value { font-size: 32px; font-weight: 800; color: var(--dark); margin: 5px 0; transition: all 0.5s; }
         .kpi-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
@@ -115,27 +118,32 @@
         <!-- 5 KPIs -->
         <div class="kpi-grid">
             <div class="kpi-card c1">
-                <div class="kpi-icon"><i class="fas fa-user-injured"></i></div>
+                <div class="kpi-icon"></div>
                 <div class="kpi-value" id="kpi-pacientes"><%= kpiPacientes %></div>
                 <div class="kpi-label">Total Pacientes</div>
             </div>
             <div class="kpi-card c2">
-                <div class="kpi-icon"><i class="fas fa-notes-medical"></i></div>
+                <div class="kpi-icon"></div>
                 <div class="kpi-value" id="kpi-consultas"><%= kpiConsultasHoy %></div>
                 <div class="kpi-label">Consultas Hoy</div>
             </div>
             <div class="kpi-card c3">
-                <div class="kpi-icon"><i class="fas fa-user-md"></i></div>
+                <div class="kpi-icon"></div>
                 <div class="kpi-value" id="kpi-medicos"><%= kpiMedicos %></div>
                 <div class="kpi-label">Médicos Activos</div>
             </div>
             <div class="kpi-card c4">
-                <div class="kpi-icon"><i class="fas fa-star"></i></div>
-                <div class="kpi-value" id="kpi-calificacion"><%= kpiCalificacion %></div>
-                <div class="kpi-label">Calific. Promedio</div>
+                <div class="kpi-icon"></div>
+                <div class="kpi-value" id="kpi-calificacion-app"><%= kpiCalificacionApp %></div>
+                <div class="kpi-label">Calif Promedio APP</div>
+            </div>
+            <div class="kpi-card c6">
+                <div class="kpi-icon"></div>
+                <div class="kpi-value" id="kpi-calificacion-medico"><%= kpiCalificacionMedico %></div>
+                <div class="kpi-label">Calif Promedio Médicos</div>
             </div>
             <div class="kpi-card c5">
-                <div class="kpi-icon"><i class="fas fa-calendar-times"></i></div>
+                <div class="kpi-icon"></div>
                 <div class="kpi-value" id="kpi-canceladas"><%= kpiCitasCanceladas %></div>
                 <div class="kpi-label">Citas Canceladas</div>
             </div>
@@ -236,7 +244,8 @@
                     animateValue('kpi-pacientes', data.pacientes);
                     animateValue('kpi-consultas', data.consultasHoy);
                     animateValue('kpi-medicos', data.medicos);
-                    animateValue('kpi-calificacion', data.calificacion);
+                    animateValue('kpi-calificacion-app', data.calificacionApp);
+                    animateValue('kpi-calificacion-medico', data.calificacionMedico);
                     animateValue('kpi-canceladas', data.citasCanceladas);
 
                     // Actualizar gráficos
